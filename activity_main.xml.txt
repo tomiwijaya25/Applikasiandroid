@@ -1,0 +1,47 @@
+
+(activity_main.xml)
+
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content" android:layout_height="wrap_content">
+	<TableLayout android:id="@+id/details"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:stretchColumns="1">
+        <TableRow>
+            <TextView
+                android:text="Name:" />
+            <EditText
+                android:id="@+id/nama" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:text="Jekel:" />
+            <RadioGroup
+                android:id="@+id/jekel">
+                <RadioButton
+                    android:id="@+id/pria"
+                    android:text="Pria" />
+                <RadioButton
+                    android:id="@+id/perempuan"
+                    android:layout_width="wrap_content"
+                    android:text="Perempuan" />
+            </RadioGroup>
+        </TableRow>
+
+        <TableRow>
+            <TextView android:text="Alamat:" />
+            <EditText android:id="@+id/alamat" />
+        </TableRow>
+
+
+        <Button android:id="@+id/save" android:layout_width="fill_parent"
+            android:layout_height="wrap_content" android:text="Save" />
+    </TableLayout>
+    <ListView android:id="@+id/almag" android:layout_width="fill_parent"
+        android:layout_height="wrap_content" android:layout_alignParentTop="true"
+        android:layout_above="@id/details" />
+</RelativeLayout>
+
