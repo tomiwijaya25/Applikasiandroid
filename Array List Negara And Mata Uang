@@ -1,0 +1,64 @@
+//	SourceCode
+//activity_main.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+<ListView
+    android:id="@+id/listView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"></ListView>
+
+</RelativeLayout>
+
+	// RelativeLayout adalah grup tampilan yang menampilkan tampilan turunan di posisi relatif. Posisi setiap tampilan dapat ditentukan sebagai posisi relatif terhadap elemen yang setara (seperti di sebelah kiri atau di bawah tampilan lain) atau di posisi relatif terhadap RelativeLayout induk (seperti sejajar dengan bagian bawah, kiri, atau tengah).
+	// ListView adalah tampilan beberapa item dalam bentuk list yang dapat di scroll secara vertikal. Setiap item akan otomatis dimasukkan kedalam list menggunakan Adapter yang datanya di ambil dari array/database/json/dsb. ListView sering digunakan dalam aplikasi Android, seperti kontak, email, twitter, dsb.
+	// Simbol @+id/ kita gunakan saat akan memberikan sebuah id pada elemen atau tag dari layout XML untuk membedakan kegunaan masing-masing elemen atau tag tersebut.
+	// Adapter adalah jembatan antara dan AdapterView (contohnya ListView) dengan data. Adapter inilah yang menyediakan akses ke item data dan juga bertanggung jawab untuk membuat sebuah View pada setiap item dalam kumpulan data. Selain itu Adapter juga yang mengelola data model. Jadi, dunia ini butuh adapter.
+	// Layout untuk menempatkan komponen-komponen di dalamnya secara horizontal atau vertikal.
+
+
+
+//MainActivity.java
+
+package com.tomi.matauangdannegara;
+
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        ListView list = (ListView) findViewById(R.id.listView);
+
+        String[] namaNegaradanmatauang ={"Indonesia (Rupiah)",
+                "Irak (Dinar)",
+                "Iran (Rial)",};
+
+        ArrayAdapter<String> myAdapter = new ArrayAdapter<> (  this, android.R.layout.simple_list_item_1, namaNegaradanmatauang );
+
+        list.setAdapter(myAdapter);
+
+   }
+}
+
+
+// 	Package adalah sebuah sarana untuk mengelompokkan atau mengorganisasikan kelas dan interface yang sama atau sekelompok menjadi satu unit tunggal dalam library. Package mempengaruhi mekanisme hak akses ke kelas didalamnya.
+// 	Fungsi import Activity adalah komponen pada aplikasi Android yang menampilkan dan mengatur halaman aplikasi sebagai tempat interaksi antara pengguna dengan aplikasi, seperti membuat panggilan telepon, mengambil foto, mengirim pesan singkat, atau mengirim email.
+// 	Fungsi import android.os.Budle untuk membaca Data dengan  tipe berbentuk String, angka (integer, float, double), ArrayList, boolean, array, character, dan sebagainya.
+// 	onCreate() adalah kondisi awal saat Activity baru diciptakan, biasanya dilakukan inisialisasi pada tahapan ini.
+// 	savedInstanceState adalah metode untuk menerima parameter yang merupakan objek Bundle yang berisi status aktivitas yang sebelumnya disimpan.
+// 	findViewById(R.id....) digunakan untuk mengenali id TextView yang sudah kita buat.
+// 	setOnClickListener menjalankan suatu instruksi yang sudah ditentukan sebelumnya
+// 	ArrayAdapter adalah salah satu class yang terdapat pada package Widget Adapter yaitu ListAdapter yag mengelola object yang berbentuk array. Pada aplikasi android ini kita akan membuat tampilan serta pembuatan class-class inputan. Gunakan adaptor ini bila sumber data berupa array. Secara default, ArrayAdapter akan membuat tampilan untuk setiap elemen array dengan memanggil toString() pada setiap elemen serta menempatkan materinya dalam TextView.
+// 	simple_list_item_1 adalah sumber daya layout yang didefinisikan oleh platform untuk item di ListView.
